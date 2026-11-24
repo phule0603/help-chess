@@ -1,0 +1,305 @@
+/* Chess Helper - Side Panel Styles */
+
+#chess-helper-panel {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 220px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #e0e0e0;
+  z-index: 10000;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ch-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Toggle switch */
+.ch-toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.ch-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #444;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.ch-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.ch-toggle input:checked + .ch-slider {
+  background-color: #4CAF50;
+}
+
+.ch-toggle input:checked + .ch-slider:before {
+  transform: translateX(20px);
+}
+
+/* Content */
+.ch-content {
+  padding: 16px;
+}
+
+.ch-section {
+  margin-bottom: 16px;
+}
+
+.ch-section:last-child {
+  margin-bottom: 0;
+}
+
+.ch-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+/* Best move display */
+.ch-best-move {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4CAF50;
+  text-align: center;
+  padding: 12px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Evaluation */
+.ch-eval {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.ch-eval-good {
+  color: #4CAF50;
+}
+
+.ch-eval-bad {
+  color: #f44336;
+}
+
+/* Moves list */
+.ch-moves-list {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ch-move-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+}
+
+.ch-move-item:last-child {
+  border-bottom: none;
+}
+
+.ch-move-item:first-child {
+  background: rgba(76, 175, 80, 0.1);
+  font-weight: 500;
+}
+
+/* Depth slider */
+#ch-depth {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+  margin-top: 8px;
+}
+
+#ch-depth::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4CAF50;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#ch-depth::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #4CAF50;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Status */
+.ch-status {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 12px;
+}
+
+/* Draggable */
+#chess-helper-panel.dragging {
+  opacity: 0.9;
+  cursor: grabbing;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ch-best-move.analyzing {
+  animation: pulse 1s infinite;
+}
+
+/* ============ Brilliant mode ============ */
+#chess-helper-panel { width: 250px; }
+
+.ch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ch-label-inline { margin-bottom: 0; }
+
+.ch-bang {
+  color: #1baca6;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.ch-toggle-brilliant input:checked + .ch-slider { background-color: #1baca6; }
+
+.ch-brilliant-body { margin-top: 10px; }
+.ch-brilliant-body[hidden], #ch-depth-section[hidden] { display: none; }
+
+#ch-bdepth {
+  width: 100%;
+  accent-color: #1baca6;
+  margin: 4px 0 10px;
+}
+
+.ch-brilliant-result {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ch-b-muted {
+  color: #999;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ch-b-brilliant {
+  background: rgba(27, 172, 166, 0.15);
+  border: 1px solid rgba(27, 172, 166, 0.6);
+}
+
+.ch-b-great {
+  background: rgba(92, 139, 176, 0.15);
+  border: 1px solid rgba(92, 139, 176, 0.6);
+}
+
+.ch-b-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ch-b-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-weight: 800;
+  color: #fff;
+  background: #1baca6;
+}
+
+.ch-b-great .ch-b-tag { background: #5c8bb0; }
+
+.ch-b-move {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ch-b-eval {
+  margin-left: auto;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.ch-b-detail {
+  margin-top: 6px;
+  color: #ddd;
+}
+
+.ch-b-pv {
+  margin-top: 6px;
+  color: #aaa;
+  font-family: Consolas, Menlo, monospace;
+  font-size: 11px;
+  word-break: break-word;
+}

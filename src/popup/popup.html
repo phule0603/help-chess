@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>Chess Helper</h1>
+      <span class="version">v1.0</span>
+    </div>
+
+    <div class="status-bar">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Checking...</span>
+    </div>
+
+    <div class="settings">
+      <div class="setting-item">
+        <label for="enabled">Enable Analysis</label>
+        <label class="switch">
+          <input type="checkbox" id="enabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <label for="depth">
+          Analysis Depth: <span id="depth-value">18</span>
+        </label>
+        <input type="range" id="depth" min="10" max="25" value="18">
+      </div>
+
+      <div class="setting-item">
+        <label for="brilliant">Brilliant Mode (vs Computer / Analysis)</label>
+        <label class="switch">
+          <input type="checkbox" id="brilliant">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <label for="auto-analyze">Auto-Analyze Moves</label>
+        <label class="switch">
+          <input type="checkbox" id="auto-analyze" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="info">
+      <p>Open chess.com to start analyzing games.</p>
+      <p class="warning">⚠️ Use for learning only. May violate ToS in rated games.</p>
+    </div>
+
+    <div class="footer">
+      <a href="https://chess.com" target="_blank">Open Chess.com</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
